@@ -9,7 +9,7 @@
 * To receive full credit, program must be able to complete all grading tasks
 
 
-#Technologies/Skills Used
+# Technologies/Skills Used
 
 * Java
 * Eclipse
