@@ -16,5 +16,10 @@ public class Player {
 				
 		
 	}
+	
+	public void display(List<Cards> hand, int numCards) {
+		
+		
+	}
 
 }

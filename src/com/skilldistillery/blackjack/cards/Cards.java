@@ -12,7 +12,7 @@ public class Cards {
 
 	}
 
-	public int getVaule() {
+	public int getValue() {
 		return rank.getValue();
 	}
 

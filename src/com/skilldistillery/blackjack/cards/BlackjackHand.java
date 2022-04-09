@@ -1,13 +1,18 @@
 package com.skilldistillery.blackjack.cards;
 
-public class BlackjackHand {
+public class BlackjackHand extends Hand{
 	
 	public BlackjackHand() {
 		
 	}
 	
 	public int getHandValue() {
-		return 0;
+		int value = 0;
+		for (Cards listOfCards : cards) {
+			value += listOfCards.getValue();
+			
+		}
+		return value;
 	}
 	
 	public boolean isBlackjack() {
