@@ -16,12 +16,14 @@ public class BlackjackHand extends Hand{
 	}
 	
 	public boolean isBlackjack() {
-//		if (hand.size() == 2 && handValue == 21) {
-//			
-//		}
-//		else if (Dealer.handValue == 21) {
-//		
-//		}
+		if (Hand() == 2 && getHandValue() == 21) {
+			System.out.println("Player has Blackjack!");
+			
+		}
+		else if (Dealer == getHandValue() == 21) {
+			System.out.println("Dealer has Blackjack!");
+		
+		}
 		return true;
 	}
 	

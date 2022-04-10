@@ -18,5 +18,9 @@ public class Dealer extends Player{
 	public void showTop() {
 		
 	}
+	
+	public void dealerBehavior() {
+		
+	}
 
 }
