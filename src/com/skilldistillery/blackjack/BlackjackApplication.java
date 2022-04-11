@@ -26,7 +26,7 @@ public class BlackjackApplication {
 		Deck deck = new Deck();
 		for (int dd = 0; dd < 2; dd++) {
 			for (int i = 0; i < playa; i++) {
-				playa.addCard(Dealer.dealToHand());
+				playa.addCard(Dealer.dealCard());
 				Dealer.addCard(deck.dealCard());
 
 			}

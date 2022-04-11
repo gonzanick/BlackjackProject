@@ -2,7 +2,7 @@ package com.skilldistillery.blackjack.cards;
 
 import java.util.List;
 
-public abstract class Hand {
+public class Hand {
 	protected List<Cards> cards;
 	
 	
@@ -12,6 +12,7 @@ public abstract class Hand {
 	
 	public Hand(List<Cards> cards) {
 		this.cards = cards;
+		
 		
 	}
 	
