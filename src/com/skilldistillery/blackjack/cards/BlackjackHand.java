@@ -1,9 +1,17 @@
 package com.skilldistillery.blackjack.cards;
 
+import java.util.List;
+
 public class BlackjackHand extends Hand{
+	
+	private List<Cards> cards;
 	
 	public BlackjackHand() {
 		
+	}
+	
+	public BlackjackHand(List<Cards> cards) {
+		this.cards = cards;
 	}
 	
 	public int getHandValue() {
@@ -16,11 +24,11 @@ public class BlackjackHand extends Hand{
 	}
 	
 	public boolean isBlackjack() {
-		if (Hand() == 2 && getHandValue() == 21) {
+		if (getHandValue() == 21) {
 			System.out.println("Player has Blackjack!");
 			
 		}
-		else if (Dealer == getHandValue() == 21) {
+		else if (getHandValue() == 21) {
 			System.out.println("Dealer has Blackjack!");
 		
 		}

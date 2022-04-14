@@ -25,14 +25,14 @@ public class Hand {
 		
 	}
 	
-	public int getHandValue(Rank value, Suit name) {
-		return getHandValue(value, name);	
+	public int getHandValue(Cards card) {
+		return getHandValue(card);	
 		
 	}
 
 	@Override
 	public String toString() {
-		return "Hand [numOfCards=" + cards + "]";
+		return "Hand numOfCards =" + cards;
 	}
 	
 	

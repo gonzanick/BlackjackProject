@@ -1,9 +1,9 @@
 package com.skilldistillery.blackjack.cards;
 
-import java.util.Scanner;
 
 public class Dealer extends Player{
 	Deck deck = new Deck();
+	Hand dealerHand = new BlackjackHand();
 
 	public void getDeck() {
 		deck.shuffle();
@@ -15,11 +15,22 @@ public class Dealer extends Player{
 		
 	}
 	
+	public void dealerHand() {
+		this.dealerHand = dealerHand;
+	}
+	
 	public void showTop() {
 		
 	}
 	
 	public void dealerBehavior() {
+		if (Hand < 17) {
+			
+		}
+		
+	}
+	
+	public void getDealerTotalHand() {
 		
 	}
 
