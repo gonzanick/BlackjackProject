@@ -1,17 +1,16 @@
 package com.skilldistillery.blackjack.cards;
 
+import java.util.ArrayList;
 import java.util.List;
 
-public class BlackjackHand extends Hand {
+public class BlackjackHand {
 
 	private List<Cards> cards;
 
+	
 	public BlackjackHand() {
-
-	}
-
-	public BlackjackHand(List<Cards> cards) {
-		this.cards = cards;
+		List<Cards> newCards = new ArrayList<>();
+		cards = newCards;
 	}
 
 	public int getHandValue(BlackjackHand cardHand) {
@@ -39,5 +38,17 @@ public class BlackjackHand extends Hand {
 
 		return true;
 	}
+	
+	public void addCard(Cards card) {
+		cards.add(card);
+		
+	}
+
+	@Override
+	public String toString() {
+		return "BlackjackHand cards =" + cards;
+	}
+	
+	
 
 }

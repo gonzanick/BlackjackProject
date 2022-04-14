@@ -15,8 +15,9 @@ public class Dealer extends Player {
 
 	}
 
-	public void dealToHand() {
-		deck.dealCard();
+	public Cards dealToHand() {
+		 Cards card = deck.dealCard();
+		 return card;
 
 	}
 

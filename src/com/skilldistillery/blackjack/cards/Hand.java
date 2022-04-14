@@ -14,8 +14,9 @@ public abstract class Hand {
 
 	}
 
-	public void addCard(Cards card) {
+	public Cards addCard(Cards card) {
 		cards.add(card);
+		return card;
 	}
 
 	public void clear() {
