@@ -1,17 +1,24 @@
 package com.skilldistillery.blackjack;
 
+import com.skilldistillery.blackjack.cards.BlackjackHand;
 import com.skilldistillery.blackjack.cards.Dealer;
 import com.skilldistillery.blackjack.cards.Deck;
 import com.skilldistillery.blackjack.cards.Player;
 
 public class BlackjackApplication {
+	Deck deck = new Deck();
+	BlackjackHand playaHand = new BlackjackHand();
+	BlackjackHand dealaHand = new BlackjackHand();
+	Player playa = new Player();
+	Dealer deala = new Dealer(deck, dealaHand);
+	
+
 	public static void main(String[] args) {
 		BlackjackApplication app = new BlackjackApplication();
-		Player playa = new Player();
 		app.run();
 	}
 
-	private int playa;
+	
 
 	public void run() {
 
@@ -23,14 +30,6 @@ public class BlackjackApplication {
 	}
 
 	public void dealerDeals() {
-		Deck deck = new Deck();
-		for (int dd = 0; dd < 2; dd++) {
-			for (int i = 0; i < playa; i++) {
-				playa.addCard(Dealer.dealCard());
-				Dealer.addCard(deck.dealCard());
-
-			}
-		}
 
 	}
 
@@ -39,7 +38,6 @@ public class BlackjackApplication {
 	}
 
 	public void dealerTurn() {
-		Dealer deala = new Dealer();
 
 	}
 
