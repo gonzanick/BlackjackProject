@@ -23,6 +23,7 @@ public class BlackjackApplication {
 	}
 
 	public void run() {
+		greeting();
 		dealerDeals(); // Initial deal
 		playerTurn();
 		dealerTurn();
@@ -31,6 +32,7 @@ public class BlackjackApplication {
 
 	public void greeting() {
 		System.out.println("Welcome to Blackjack!");
+		System.out.println();	
 
 	}
 
@@ -51,9 +53,9 @@ public class BlackjackApplication {
 	}
 
 	public void playerTurn() {
+		System.out.println("Type HIT for another card or STAY to end your turn: ");
 		String playerInput = sc.next();
 
-		System.out.println("Type HIT for another card or STAY to end your turn: ");
 		boolean stay = false;
 
 		while (stay != true) {

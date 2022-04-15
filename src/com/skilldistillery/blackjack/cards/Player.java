@@ -6,7 +6,7 @@ import java.util.List;
 public class Player {
 	BlackjackHand bjh = new BlackjackHand();
 	private List<Cards> hand;
-	// private int numCards;
+	private int numCards;
 
 	public Player() {
 		List<Cards> hand = new ArrayList<>();
