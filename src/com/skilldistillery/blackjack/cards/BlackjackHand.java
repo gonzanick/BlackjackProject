@@ -19,6 +19,7 @@ public class BlackjackHand {
 			value += listOfCards.getValue();
 
 		}
+		System.out.println(value);
 		return value;
 	}
 
@@ -34,9 +35,12 @@ public class BlackjackHand {
 	public boolean isBust(BlackjackHand cardHand) {
 		if (getHandValue(cardHand) > 21) {
 			System.out.println("BUST");
+			return true;
+		}else {
+			return false;
+			
 		}
 
-		return true;
 	}
 	
 	public void addCard(Cards card) {
@@ -46,7 +50,7 @@ public class BlackjackHand {
 
 	@Override
 	public String toString() {
-		return "BlackjackHand cards =" + cards;
+		return"" + cards;
 	}
 	
 	

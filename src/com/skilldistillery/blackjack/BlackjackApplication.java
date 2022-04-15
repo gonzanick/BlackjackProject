@@ -23,7 +23,9 @@ public class BlackjackApplication {
 	}
 
 	public void run() {
-		dealerDeals();
+		dealerDeals(); // Initial deal
+		playerTurn();
+		dealerTurn();
 
 	}
 
@@ -35,33 +37,46 @@ public class BlackjackApplication {
 	public void dealerDeals() {
 		deck.shuffle();
 
-		//int numOCards = sc.nextInt();
-		//if (numOCards > 52 || numOCards < 0) {
-			System.out.println("Games Starts");
-			cards = deala.dealToHand();
-			playaHand.addCard(cards);
-			cards = deala.dealToHand();
-			playaHand.addCard(cards);
-			cards = deala.dealToHand();
-			dealaHand.addCard(cards);
-			cards = deala.dealToHand();
-			dealaHand.addCard(cards);
-			System.out.println(cards);
-			System.out.println(playaHand);
-			System.out.println(dealaHand);
-		//} //else {
-			//for (int i = 0; i < numOCards; i++) {
-				System.out.println(deck.dealCard());
-			}
-		//}
+		cards = deala.dealToHand();
+		playaHand.addCard(cards);
+		cards = deala.dealToHand();
+		playaHand.addCard(cards);
+		cards = deala.dealToHand();
+		dealaHand.addCard(cards);
+		cards = deala.dealToHand();
+		dealaHand.addCard(cards);
+		System.out.println("Player hand " + playaHand);
+		System.out.println("Dealer hand " + dealaHand);
 
-	//}
+	}
 
 	public void playerTurn() {
+		String playerInput = sc.next();
+
+		System.out.println("Type HIT for another card or STAY to end your turn: ");
+		boolean stay = false;
+
+		while (stay != true) {
+			playerInput = sc.next();
+			if (playerInput.equalsIgnoreCase("hit")) {
+				playaHand.addCard(cards);
+				System.out.println(playaHand);
+				if (playaHand.isBust(playaHand)) {
+					break;
+				}
+
+			} else if (playerInput.equalsIgnoreCase("stay")) {
+
+				stay = true;
+
+			}
+
+		}
 
 	}
 
 	public void dealerTurn() {
+		deala.dealerBehavior();
 
 	}
 

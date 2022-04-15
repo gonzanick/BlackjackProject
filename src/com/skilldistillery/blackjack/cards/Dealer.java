@@ -16,8 +16,8 @@ public class Dealer extends Player {
 	}
 
 	public Cards dealToHand() {
-		 Cards card = deck.dealCard();
-		 return card;
+		Cards card = deck.dealCard();
+		return card;
 
 	}
 
@@ -29,17 +29,29 @@ public class Dealer extends Player {
 //		
 //	}
 
-	public boolean dealerBehavior() {
+	public void dealerBehavior() {
+
 		boolean stay = false;
 
-		if (dealerHand.getHandValue(dealerHand) < 17) {
-			dealToHand();
-		} else {
-			stay = true;
-			return stay;
-		}
-		return stay;
+		while (stay != true) {
+			if (dealerHand.getHandValue(dealerHand) < 17) {
+				if (deck.checkDeckSize() > 0) {
+					dealToHand();
 
+				} else {
+					stay = true;
+				}
+				System.out.println(dealerHand);
+				if (dealerHand.isBust(dealerHand)) {
+					System.out.println("HOUSE BUST");
+					break;
+				}
+			} else {
+				stay = true;
+
+			}
+
+		}
 	}
 
 	public void getDealerTotalHand() {
