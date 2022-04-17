@@ -32,7 +32,7 @@ public class Deck {
 	}
 
 	public Cards dealCard() {
-		return cards.remove(0);
+		return cards.remove(1);
 	}
 
 }

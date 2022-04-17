@@ -14,7 +14,7 @@ public class BlackjackApplication {
 	BlackjackHand playaHand = new BlackjackHand();
 	BlackjackHand dealaHand = new BlackjackHand();
 	Player playa = new Player(playaHand);
-	Dealer deala = new Dealer(deck, dealaHand);
+	Dealer deala = new Dealer(dealaHand);
 	Scanner sc = new Scanner(System.in);
 
 	public static void main(String[] args) {
@@ -32,20 +32,20 @@ public class BlackjackApplication {
 
 	public void greeting() {
 		System.out.println("Welcome to Blackjack!");
-		System.out.println();	
+		System.out.println();
 
 	}
 
 	public void dealerDeals() {
-		deck.shuffle();
+		deck = deala.getDeck(deck);
 
-		cards = deala.dealToHand();
+		cards = deala.dealToHand(deck);
 		playaHand.addCard(cards);
-		cards = deala.dealToHand();
+		cards = deala.dealToHand(deck);
 		playaHand.addCard(cards);
-		cards = deala.dealToHand();
+		cards = deala.dealToHand(deck);
 		dealaHand.addCard(cards);
-		cards = deala.dealToHand();
+		cards = deala.dealToHand(deck);
 		dealaHand.addCard(cards);
 		System.out.println("Player hand " + playaHand);
 		System.out.println("Dealer hand " + dealaHand);
@@ -53,28 +53,27 @@ public class BlackjackApplication {
 	}
 
 	public void playerTurn() {
-		System.out.println("Type HIT for another card or STAY to end your turn: ");
+		System.out.println("Player type HIT for another card or STAY to end your turn: ");
 
 		boolean stay = false;
 
 		while (stay != true) {
-			String playerInput = sc.next();
-			playerInput = sc.next();
-			if (playerInput.equalsIgnoreCase("hit")) {
-				playaHand.addCard(cards);
-				System.out.println(playaHand);
-				if (playaHand.isBlackjack(playaHand)) {
-					break;
-				}
-				else if (playaHand.isBust(playaHand)) {
-					System.out.println("BUST!");
-					break;
-				}
-
-			} else if (playerInput.equalsIgnoreCase("stay")) {
-
+			if (playaHand.isBust(playaHand)) {
 				stay = true;
+				break;
+			}
 
+			else {
+				String playerInput = sc.next();
+				if (playerInput.equalsIgnoreCase("hit")) {
+					System.out.println("Player select HIT to hit or STAY to end your turn: ");
+					playaHand.addCard(deala.dealToHand(deck));
+					System.out.println(playaHand);
+				} else if (playerInput.equalsIgnoreCase("stay")) {
+
+					stay = true;
+
+				}
 			}
 
 		}
@@ -82,8 +81,18 @@ public class BlackjackApplication {
 	}
 
 	public void dealerTurn() {
-		deala.dealerBehavior();
+		System.out.println("Dealer hand: ");
+		deala.dealerBehavior(deck);
 
+	}
+
+	public boolean isDraw(BlackjackHand dealerHand, BlackjackHand playerHand) {
+		if (dealerHand.getHandValue() == playerHand.getHandValue()) {
+			System.out.println("DRAW!");
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 }

@@ -1,48 +1,44 @@
 package com.skilldistillery.blackjack.cards;
 
 public class Dealer extends Player {
-	Deck deck = new Deck();
-	BlackjackHand dealerHand = new BlackjackHand();
 
-	public Dealer(Deck deck, BlackjackHand dealerHand) {
+	public Dealer(BlackjackHand dealerHand) {
 		super();
-		this.deck = deck;
-		this.dealerHand = dealerHand;
+		this.bjh = dealerHand;
 	}
 
-	public void getDeck() {
+	public Deck getDeck(Deck deck) {
 		deck.shuffle();
+		
+		return deck;
 
 	}
 
-	public Cards dealToHand() {
+	public Cards dealToHand(Deck deck) {
 		Cards card = deck.dealCard();
 		return card;
 
 	}
 
-//	public void dealerHand() {
-//		this.dealerHand = dealerHand;
-//	}
 
 //	public void showTop() {
 //		
 //	}
 
-	public void dealerBehavior() {
+	public void dealerBehavior(Deck deck) {
 
 		boolean stay = false;
 
 		while (stay != true) {
-			if (dealerHand.getHandValue(dealerHand) < 17) {
+			if (bjh.getHandValue() < 17) {
 				if (deck.checkDeckSize() > 0) {
-					dealToHand();
+					this.bjh.addCard(dealToHand(deck));
 
 				} else {
 					stay = true;
 				}
-				System.out.println(dealerHand);
-				if (dealerHand.isBust(dealerHand)) {
+				System.out.println(bjh);
+				if (bjh.isBust(bjh)) {
 					System.out.println("HOUSE BUST");
 					break;
 				}

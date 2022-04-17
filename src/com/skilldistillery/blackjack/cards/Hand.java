@@ -14,8 +14,16 @@ public abstract class Hand {
 
 	}
 
+	public List<Cards> getCards() {
+		return cards;
+	}
+
+	public void setCards(List<Cards> cards) {
+		this.cards = cards;
+	}
+
 	public Cards addCard(Cards card) {
-		cards.add(card);
+		this.cards.add(card);
 		return card;
 	}
 

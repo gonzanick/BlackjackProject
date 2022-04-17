@@ -3,20 +3,15 @@ package com.skilldistillery.blackjack.cards;
 import java.util.ArrayList;
 import java.util.List;
 
-public class BlackjackHand {
-	Deck deck = new Deck();
-	Player player = new Player();
-	Dealer dealer = new Dealer(deck, BlackjackHand);
+public class BlackjackHand extends Hand{
 
-	private List<Cards> cards;
 
-	
 	public BlackjackHand() {
 		List<Cards> newCards = new ArrayList<>();
-		cards = newCards;
+		this.cards = newCards;
 	}
 
-	public int getHandValue(BlackjackHand cardHand) {
+	public int getHandValue() {
 		int value = 0;
 		for (Cards listOfCards : cards) {
 			value += listOfCards.getValue();
@@ -27,7 +22,7 @@ public class BlackjackHand {
 	}
 
 	public boolean isBlackjack(BlackjackHand cardHand) {
-		if (getHandValue(cardHand) == 21) {
+		if (getHandValue() == 21) {
 			System.out.println("Blackjack!");
 
 		}
@@ -36,35 +31,21 @@ public class BlackjackHand {
 	}
 
 	public boolean isBust(BlackjackHand cardHand) {
-		if (getHandValue(cardHand) > 21) {
+		if (getHandValue() > 21) {
 			System.out.println("BUST");
 			return true;
-		}else {
+		} else {
 			return false;
-			
+
 		}
 
 	}
-	
-	public boolean isDraw(BlackjackHand cardHand) {
-		if (getHandValue(cardHand) == getHandValue(cardHand)) {
-			System.out.println("DRAW!");
-			return true;
-		}else {
-			return false;
-		}
-	}
-	
-	public void addCard(Cards card) {
-		cards.add(card);
-		
-	}
+
 
 	@Override
 	public String toString() {
-		return"" + cards;
+		return "" + cards;
 	}
-	
 	
 
 }

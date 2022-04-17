@@ -5,8 +5,8 @@ import java.util.List;
 
 public class Player {
 	BlackjackHand bjh = new BlackjackHand();
-	private List<Cards> hand;
 	private int numCards;
+	
 
 	public Player() {
 		List<Cards> hand = new ArrayList<>();
@@ -30,11 +30,11 @@ public class Player {
 	}
 
 	public List<Cards> getHand() {
-		return hand;
+		return this.bjh.getCards();
 	}
 
 	public void setHand(List<Cards> hand) {
-		this.hand = hand;
+		this.bjh.setCards(hand);
 	}
 
 }
