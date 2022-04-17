@@ -27,27 +27,37 @@ public class BlackjackApplication {
 		dealerDeals(); // Initial deal
 		playerTurn();
 		if (playaHand.isBust()) {
-			System.out.println("Player BUST! Dealer wins!");
+			System.out.println("Player BUST! Dealer Wins!");
 			System.out.println("GAMEOVER!");
 			return;
 		}	
 		dealerTurn();
+		if (dealaHand.isBust()) {
+			System.out.println("Dealer BUST! Player Wins!");
+			System.out.println("GAMEOVER!");
+			return;
+		}	
 		if (isDraw(playaHand, dealaHand)) {
 			System.out.println("DRAW! Both Dealer and Player have equal value.");
+			System.out.println("GAMEOVER!");
 			return;
 		}
 		if (dealaHand.isBlackjack()) {
-			System.out.println("House wins!");
+			System.out.println("House Wins!");
+			System.out.println("GAMEOVER!");
 			return;
 		}
 		if (playaHand.isBlackjack()) {
-			System.out.println("Player wins!");
+			System.out.println("Player Wins!");
+			System.out.println("GAMEOVER!");
 			return;
 		}
 		if (playaHand.getHandValue() > dealaHand.getHandValue()) {
 			System.out.println("Player Wins!");
+			System.out.println("GAMEOVER!");
 		}else {
 			System.out.println("House Wins!");
+			System.out.println("GAMEOVER!");
 		}
 
 	}
