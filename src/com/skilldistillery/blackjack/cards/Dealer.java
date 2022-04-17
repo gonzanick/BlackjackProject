@@ -21,9 +21,10 @@ public class Dealer extends Player {
 	}
 
 
-//	public void showTop() {
-//		
-//	}
+	public String showTop() {
+		return " Hidden Card, " + this.bjh.cards.get(1);
+		
+	}
 
 	public void dealerBehavior(Deck deck) {
 
@@ -37,9 +38,8 @@ public class Dealer extends Player {
 				} else {
 					stay = true;
 				}
-				System.out.println(bjh);
-				if (bjh.isBust(bjh)) {
-					System.out.println("HOUSE BUST");
+				System.out.println("Dealer hand " + bjh);
+				if (bjh.isBust()) {
 					break;
 				}
 			} else {
@@ -50,8 +50,5 @@ public class Dealer extends Player {
 		}
 	}
 
-	public void getDealerTotalHand() {
-
-	}
 
 }

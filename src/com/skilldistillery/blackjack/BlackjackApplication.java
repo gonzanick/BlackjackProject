@@ -26,7 +26,29 @@ public class BlackjackApplication {
 		greeting();
 		dealerDeals(); // Initial deal
 		playerTurn();
+		if (playaHand.isBust()) {
+			System.out.println("Player BUST! Dealer wins!");
+			System.out.println("GAMEOVER!");
+			return;
+		}	
 		dealerTurn();
+		if (isDraw(playaHand, dealaHand)) {
+			System.out.println("DRAW! Both Dealer and Player have equal value.");
+			return;
+		}
+		if (dealaHand.isBlackjack()) {
+			System.out.println("House wins!");
+			return;
+		}
+		if (playaHand.isBlackjack()) {
+			System.out.println("Player wins!");
+			return;
+		}
+		if (playaHand.getHandValue() > dealaHand.getHandValue()) {
+			System.out.println("Player Wins!");
+		}else {
+			System.out.println("House Wins!");
+		}
 
 	}
 
@@ -48,28 +70,31 @@ public class BlackjackApplication {
 		cards = deala.dealToHand(deck);
 		dealaHand.addCard(cards);
 		System.out.println("Player hand " + playaHand);
-		System.out.println("Dealer hand " + dealaHand);
+		System.out.println("Dealer hand " + deala.showTop());
 
 	}
 
 	public void playerTurn() {
-		System.out.println("Player type HIT for another card or STAY to end your turn: ");
+		//System.out.println("Player type HIT for another card or STAY to end your turn: ");
 
 		boolean stay = false;
 
 		while (stay != true) {
-			if (playaHand.isBust(playaHand)) {
+			if (playaHand.isBust() || playaHand.isBlackjack()) {
 				stay = true;
 				break;
 			}
-
 			else {
+				System.out.println("Player select HIT to hit or STAY to end your turn: ");
 				String playerInput = sc.next();
 				if (playerInput.equalsIgnoreCase("hit")) {
-					System.out.println("Player select HIT to hit or STAY to end your turn: ");
 					playaHand.addCard(deala.dealToHand(deck));
-					System.out.println(playaHand);
+					System.out.println("Player hand " + playaHand);
+//					if (playaHand.isBlackjack()) {
+//						break;
+//					}
 				} else if (playerInput.equalsIgnoreCase("stay")) {
+					System.out.println();
 
 					stay = true;
 
@@ -83,12 +108,12 @@ public class BlackjackApplication {
 	public void dealerTurn() {
 		System.out.println("Dealer hand: ");
 		deala.dealerBehavior(deck);
+		
 
 	}
 
 	public boolean isDraw(BlackjackHand dealerHand, BlackjackHand playerHand) {
 		if (dealerHand.getHandValue() == playerHand.getHandValue()) {
-			System.out.println("DRAW!");
 			return true;
 		} else {
 			return false;

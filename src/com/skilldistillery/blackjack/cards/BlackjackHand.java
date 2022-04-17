@@ -17,22 +17,21 @@ public class BlackjackHand extends Hand{
 			value += listOfCards.getValue();
 
 		}
-		System.out.println(value);
+		//System.out.println(value);
 		return value;
 	}
 
-	public boolean isBlackjack(BlackjackHand cardHand) {
+	public boolean isBlackjack() {
 		if (getHandValue() == 21) {
-			System.out.println("Blackjack!");
-
+			return true;
+		} else {
+			return false;
 		}
 
-		return true;
 	}
 
-	public boolean isBust(BlackjackHand cardHand) {
+	public boolean isBust() {
 		if (getHandValue() > 21) {
-			System.out.println("BUST");
 			return true;
 		} else {
 			return false;
@@ -44,7 +43,7 @@ public class BlackjackHand extends Hand{
 
 	@Override
 	public String toString() {
-		return "" + cards;
+		return "" + cards + " " + getHandValue();
 	}
 	
 
