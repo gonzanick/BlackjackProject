@@ -4,6 +4,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BlackjackHand {
+	Deck deck = new Deck();
+	Player player = new Player();
+	Dealer dealer = new Dealer(deck, BlackjackHand);
 
 	private List<Cards> cards;
 
@@ -41,6 +44,15 @@ public class BlackjackHand {
 			
 		}
 
+	}
+	
+	public boolean isDraw(BlackjackHand cardHand) {
+		if (getHandValue(cardHand) == getHandValue(cardHand)) {
+			System.out.println("DRAW!");
+			return true;
+		}else {
+			return false;
+		}
 	}
 	
 	public void addCard(Cards card) {

@@ -54,16 +54,20 @@ public class BlackjackApplication {
 
 	public void playerTurn() {
 		System.out.println("Type HIT for another card or STAY to end your turn: ");
-		String playerInput = sc.next();
 
 		boolean stay = false;
 
 		while (stay != true) {
+			String playerInput = sc.next();
 			playerInput = sc.next();
 			if (playerInput.equalsIgnoreCase("hit")) {
 				playaHand.addCard(cards);
 				System.out.println(playaHand);
-				if (playaHand.isBust(playaHand)) {
+				if (playaHand.isBlackjack(playaHand)) {
+					break;
+				}
+				else if (playaHand.isBust(playaHand)) {
+					System.out.println("BUST!");
 					break;
 				}
 
