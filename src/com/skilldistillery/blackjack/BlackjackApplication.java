@@ -110,7 +110,6 @@ public class BlackjackApplication {
 
 				}
 			}
-			sc.close();
 
 		}
 
